@@ -19,7 +19,11 @@ class fp:
     def distinct(self):
         self.mylist = list(set(self.mylist))
         return fp( self.mylist)
-        
+
+    def sort(self, key=None, reverse=False):
+        return fp( sorted( self.mylist , key = key , reverse = reverse))
+
     def show(self):
         for i in self.mylist:
             print(i)
+            
