@@ -1,12 +1,11 @@
-
-
-
-from functools import partial
 from functools import reduce
 
 class fp:
     def __init__(self , l ):
         self.mylist = l
+        
+    def __iter__(self):
+         return iter(self.mylist)
         
     def map(self , f):
         return fp( list(map(f , self.mylist)))
@@ -16,9 +15,11 @@ class fp:
         
     def reduce(self , f ):
         return reduce( f , self.mylist)
+    
+    def distinct(self):
+        self.mylist = list(set(self.mylist))
+        return fp( self.mylist)
         
     def show(self):
         for i in self.mylist:
             print(i)
-      
-            
